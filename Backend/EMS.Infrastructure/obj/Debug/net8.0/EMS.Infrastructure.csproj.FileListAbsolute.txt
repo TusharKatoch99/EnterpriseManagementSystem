@@ -1,0 +1,12 @@
+C:\Projects\EMS\Backend\EMS.Infrastructure\bin\Debug\net8.0\EMS.Infrastructure.deps.json
+C:\Projects\EMS\Backend\EMS.Infrastructure\bin\Debug\net8.0\EMS.Infrastructure.dll
+C:\Projects\EMS\Backend\EMS.Infrastructure\bin\Debug\net8.0\EMS.Infrastructure.pdb
+C:\Projects\EMS\Backend\EMS.Infrastructure\obj\Debug\net8.0\EMS.Infrastructure.csproj.AssemblyReference.cache
+C:\Projects\EMS\Backend\EMS.Infrastructure\obj\Debug\net8.0\EMS.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Projects\EMS\Backend\EMS.Infrastructure\obj\Debug\net8.0\EMS.Infrastructure.AssemblyInfoInputs.cache
+C:\Projects\EMS\Backend\EMS.Infrastructure\obj\Debug\net8.0\EMS.Infrastructure.AssemblyInfo.cs
+C:\Projects\EMS\Backend\EMS.Infrastructure\obj\Debug\net8.0\EMS.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Projects\EMS\Backend\EMS.Infrastructure\obj\Debug\net8.0\EMS.Infrastructure.dll
+C:\Projects\EMS\Backend\EMS.Infrastructure\obj\Debug\net8.0\refint\EMS.Infrastructure.dll
+C:\Projects\EMS\Backend\EMS.Infrastructure\obj\Debug\net8.0\EMS.Infrastructure.pdb
+C:\Projects\EMS\Backend\EMS.Infrastructure\obj\Debug\net8.0\ref\EMS.Infrastructure.dll
