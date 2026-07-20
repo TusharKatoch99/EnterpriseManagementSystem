@@ -11,6 +11,25 @@
           "lib/netstandard2.1/BCrypt-Net-Next.dll": {}
         }
       },
+      "Microsoft.AspNetCore.Authentication.JwtBearer/8.0.18": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.IdentityModel.Protocols.OpenIdConnect": "7.1.2"
+        },
+        "compile": {
+          "lib/net8.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll": {
+            "related": ".xml"
+          }
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
       "Microsoft.AspNetCore.OpenApi/8.0.29": {
         "type": "package",
         "dependencies": {
@@ -625,6 +644,21 @@
         "lib/netstandard2.1/BCrypt-Net-Next.dll",
         "lib/netstandard2.1/BCrypt.Net-Next.xml",
         "readme.md"
+      ]
+    },
+    "Microsoft.AspNetCore.Authentication.JwtBearer/8.0.18": {
+      "sha512": "Ty49uva5oIFa7nOkeL+6TGRU7DQohBaEGs+QcGoGSXq4d7MZnNueLte0HFa9WHvjZUDfJSQ1PVmWkFeIYS1w4Q==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.authentication.jwtbearer/8.0.18",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net8.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll",
+        "lib/net8.0/Microsoft.AspNetCore.Authentication.JwtBearer.xml",
+        "microsoft.aspnetcore.authentication.jwtbearer.8.0.18.nupkg.sha512",
+        "microsoft.aspnetcore.authentication.jwtbearer.nuspec"
       ]
     },
     "Microsoft.AspNetCore.OpenApi/8.0.29": {
@@ -1605,6 +1639,7 @@
   "projectFileDependencyGroups": {
     "net8.0": [
       "BCrypt.Net-Next >= 4.2.0",
+      "Microsoft.AspNetCore.Authentication.JwtBearer >= 8.0.18",
       "Microsoft.AspNetCore.OpenApi >= 8.0.29",
       "Microsoft.Data.SqlClient >= 7.0.2",
       "Swashbuckle.AspNetCore >= 10.2.3"
@@ -1616,11 +1651,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\projects\\EMS\\Backend\\EMS.API\\EMS.API.csproj",
+      "projectUniqueName": "C:\\Projects\\EMS\\backend\\ems.api\\EMS.API.csproj",
       "projectName": "EMS.API",
-      "projectPath": "C:\\projects\\EMS\\Backend\\EMS.API\\EMS.API.csproj",
+      "projectPath": "C:\\Projects\\EMS\\backend\\ems.api\\EMS.API.csproj",
       "packagesPath": "C:\\Users\\TUSHAR KATOCH\\.nuget\\packages\\",
-      "outputPath": "C:\\projects\\EMS\\Backend\\EMS.API\\obj\\",
+      "outputPath": "C:\\Projects\\EMS\\backend\\ems.api\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\TUSHAR KATOCH\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -1655,6 +1690,10 @@
           "BCrypt.Net-Next": {
             "target": "Package",
             "version": "[4.2.0, )"
+          },
+          "Microsoft.AspNetCore.Authentication.JwtBearer": {
+            "target": "Package",
+            "version": "[8.0.18, )"
           },
           "Microsoft.AspNetCore.OpenApi": {
             "target": "Package",

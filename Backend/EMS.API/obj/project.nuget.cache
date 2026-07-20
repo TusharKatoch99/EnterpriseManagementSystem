@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "byIYApsIGao=",
+  "dgSpecHash": "HdpbcCaKBBA=",
   "success": true,
-  "projectFilePath": "C:\\projects\\EMS\\backend\\EMS.API\\EMS.API.csproj",
+  "projectFilePath": "C:\\Projects\\EMS\\backend\\ems.api\\EMS.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\TUSHAR KATOCH\\.nuget\\packages\\bcrypt.net-next\\4.2.0\\bcrypt.net-next.4.2.0.nupkg.sha512",
+    "C:\\Users\\TUSHAR KATOCH\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\8.0.18\\microsoft.aspnetcore.authentication.jwtbearer.8.0.18.nupkg.sha512",
     "C:\\Users\\TUSHAR KATOCH\\.nuget\\packages\\microsoft.aspnetcore.openapi\\8.0.29\\microsoft.aspnetcore.openapi.8.0.29.nupkg.sha512",
     "C:\\Users\\TUSHAR KATOCH\\.nuget\\packages\\microsoft.bcl.cryptography\\8.0.0\\microsoft.bcl.cryptography.8.0.0.nupkg.sha512",
     "C:\\Users\\TUSHAR KATOCH\\.nuget\\packages\\microsoft.data.sqlclient\\7.0.2\\microsoft.data.sqlclient.7.0.2.nupkg.sha512",
