@@ -2,7 +2,8 @@ CREATE OR ALTER PROCEDURE sp_SaveRefreshToken
 (
     @UserId INT,
     @Token NVARCHAR(500),
-    @ExpiresAt DATETIME
+    @ExpiresAt DATETIME,
+    @CreatedByIp NVARCHAR(100) = NULL
 )
 AS
 BEGIN
@@ -14,15 +15,17 @@ BEGIN
         Token,
         ExpiresAt,
         CreatedAt,
-        IsRevoked
+        IsRevoked,
+        CreatedByIp
     )
     VALUES
     (
         @UserId,
         @Token,
         @ExpiresAt,
-        GETDATE(),
-        0
+        GETUTCDATE(),
+        0,
+        @CreatedByIp
     );
 END
 GO

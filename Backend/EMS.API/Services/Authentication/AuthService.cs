@@ -11,11 +11,13 @@ namespace EMS.API.Services.Authentication
     {
         private readonly IAuthRepository _authRepository;
         private readonly IJwtService _jwtService;
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public AuthService(IAuthRepository authRepository,  IJwtService jwtService)
+        public AuthService(IAuthRepository authRepository,  IJwtService jwtService, IHttpContextAccessor httpContextAccessor)
         {
             _authRepository = authRepository;
             _jwtService = jwtService;
+            _httpContextAccessor = httpContextAccessor;
         }
 
         public async Task<ApiResponse<object>> RegisterAsync(RegisterRequestDto request)
@@ -89,18 +91,78 @@ namespace EMS.API.Services.Authentication
                 return ApiResponse<LoginResponseDto>.CreateFailure("Invalid email or password.");
             }
 
-            var tokens = await _jwtService.GenerateTokensAsync(user);;
+            
+            var tokens = await _jwtService.GenerateTokensAsync(user);
 
             var refreshToken = new RefreshToken
             {
                 UserId = user.UserId,
                 Token = tokens.RefreshToken,
-                ExpiresAt = tokens.RefreshTokenExpiresAt
+                ExpiresAt = tokens.RefreshTokenExpiresAt,
+                CreatedByIp = _httpContextAccessor.HttpContext?.Connection.RemoteIpAddress?.ToString()
             };
 
             await _authRepository.SaveRefreshTokenAsync(refreshToken);
 
             return ApiResponse<LoginResponseDto>.CreateSuccess(tokens);
+        }
+
+        public async Task<ApiResponse<LoginResponseDto>> RefreshTokenAsync(RefreshTokenRequestDto request)
+        {
+            // Find refresh token
+            var storedToken =
+                await _authRepository.GetRefreshTokenAsync(request.RefreshToken);
+
+            if (storedToken == null)
+            {
+                return ApiResponse<LoginResponseDto>.CreateFailure(
+                    "Invalid refresh token.");
+            }
+
+            if (storedToken.IsRevoked)
+            {
+                return ApiResponse<LoginResponseDto>.CreateFailure(
+                    "Refresh token has been revoked.");
+            }
+
+            if (storedToken.ExpiresAt <= DateTime.UtcNow)
+            {
+                return ApiResponse<LoginResponseDto>.CreateFailure(
+                    "Refresh token has expired.");
+            }
+
+            // Get user
+            var user =
+                await _authRepository.GetUserWithRolesByIdAsync(storedToken.UserId);
+
+            if (user == null)
+            {
+                return ApiResponse<LoginResponseDto>.CreateFailure(
+                    "User not found.");
+            }
+
+            // Generate new tokens
+            var newTokens =
+                await _jwtService.GenerateTokensAsync(user);
+
+            // Revoke old refresh token
+            await _authRepository.RevokeRefreshTokenAsync(storedToken.Token);
+
+            // Save new refresh token
+            var refreshToken = new RefreshToken
+            {
+                UserId = user.UserId,
+                Token = newTokens.RefreshToken,
+                ExpiresAt = newTokens.RefreshTokenExpiresAt,
+                CreatedAt = DateTime.UtcNow,
+                IsRevoked = false
+            };
+
+            await _authRepository.SaveRefreshTokenAsync(refreshToken);
+
+            return ApiResponse<LoginResponseDto>.CreateSuccess(
+                newTokens,
+                "Token refreshed successfully.");
         }
     }
 }

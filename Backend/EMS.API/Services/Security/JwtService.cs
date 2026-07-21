@@ -40,6 +40,7 @@ namespace EMS.API.Services.Security
             };
 
             // Add all roles
+
             foreach (var role in user.Roles)
             {
                 claims.Add(new Claim(ClaimTypes.Role, role));

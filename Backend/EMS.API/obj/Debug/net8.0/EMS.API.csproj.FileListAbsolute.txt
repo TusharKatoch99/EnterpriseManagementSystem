@@ -147,3 +147,4 @@ C:\projects\EMS\Backend\EMS.API\obj\Debug\net8.0\EMS.API.pdb
 C:\projects\EMS\Backend\EMS.API\obj\Debug\net8.0\EMS.API.genruntimeconfig.cache
 C:\projects\EMS\Backend\EMS.API\obj\Debug\net8.0\ref\EMS.API.dll
 C:\Projects\EMS\Backend\EMS.API\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Projects\EMS\backend\ems.api\obj\Debug\net8.0\EMS.API.sourcelink.json

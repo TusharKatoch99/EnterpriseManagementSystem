@@ -15,5 +15,6 @@ namespace EMS.API.Models.Authentication
         public DateTime? RevokedAt { get; set; }
 
         public bool IsRevoked { get; set; }
+        public string? CreatedByIp { get; set; }
     }
 }

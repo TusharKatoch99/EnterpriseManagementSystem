@@ -44,5 +44,18 @@ namespace EMS.API.Controllers.Authentication
 
             return Ok(result);
         }
+
+        [HttpPost("refresh-token")]
+        public async Task<IActionResult> RefreshToken(
+            RefreshTokenRequestDto request)
+        {
+            var result =
+                await _authService.RefreshTokenAsync(request);
+
+            if (!result.Success)
+                return Unauthorized(result);
+
+            return Ok(result);
+        }
     }
 }

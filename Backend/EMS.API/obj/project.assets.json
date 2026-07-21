@@ -1651,11 +1651,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Projects\\EMS\\backend\\ems.api\\EMS.API.csproj",
+      "projectUniqueName": "C:\\Projects\\EMS\\Backend\\EMS.API\\EMS.API.csproj",
       "projectName": "EMS.API",
-      "projectPath": "C:\\Projects\\EMS\\backend\\ems.api\\EMS.API.csproj",
+      "projectPath": "C:\\Projects\\EMS\\Backend\\EMS.API\\EMS.API.csproj",
       "packagesPath": "C:\\Users\\TUSHAR KATOCH\\.nuget\\packages\\",
-      "outputPath": "C:\\Projects\\EMS\\backend\\ems.api\\obj\\",
+      "outputPath": "C:\\Projects\\EMS\\Backend\\EMS.API\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\TUSHAR KATOCH\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -1730,5 +1730,13 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.423/PortableRuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1900",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Error occurred while getting package vulnerability data: Unable to load the service index for source https://api.nuget.org/v3/index.json."
+    }
+  ]
 }

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Projects\\EMS\\backend\\ems.api\\EMS.API.csproj": {}
+    "C:\\Projects\\EMS\\Backend\\EMS.API\\EMS.API.csproj": {}
   },
   "projects": {
-    "C:\\Projects\\EMS\\backend\\ems.api\\EMS.API.csproj": {
+    "C:\\Projects\\EMS\\Backend\\EMS.API\\EMS.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Projects\\EMS\\backend\\ems.api\\EMS.API.csproj",
+        "projectUniqueName": "C:\\Projects\\EMS\\Backend\\EMS.API\\EMS.API.csproj",
         "projectName": "EMS.API",
-        "projectPath": "C:\\Projects\\EMS\\backend\\ems.api\\EMS.API.csproj",
+        "projectPath": "C:\\Projects\\EMS\\Backend\\EMS.API\\EMS.API.csproj",
         "packagesPath": "C:\\Users\\TUSHAR KATOCH\\.nuget\\packages\\",
-        "outputPath": "C:\\Projects\\EMS\\backend\\ems.api\\obj\\",
+        "outputPath": "C:\\Projects\\EMS\\Backend\\EMS.API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\TUSHAR KATOCH\\AppData\\Roaming\\NuGet\\NuGet.Config"
