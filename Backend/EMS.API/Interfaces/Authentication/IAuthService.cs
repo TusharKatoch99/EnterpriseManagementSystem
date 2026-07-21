@@ -10,5 +10,7 @@ namespace EMS.API.Interfaces.Authentication
         Task<ApiResponse<LoginResponseDto>> LoginAsync(LoginRequestDto request);
         
         Task<ApiResponse<LoginResponseDto>> RefreshTokenAsync(RefreshTokenRequestDto request);
+
+        Task<ApiResponse<string>> LogoutAsync(LogoutRequestDto request);
     }
 }

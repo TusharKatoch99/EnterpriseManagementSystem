@@ -9,6 +9,10 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using EMS.API.Interfaces.Security;
 using EMS.API.Services.Security;
+using EMS.API.Services.Common;
+using EMS.API.Interfaces.Department;
+using EMS.API.Repositories.Department;
+using EMS.API.Services.Department;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -24,9 +28,9 @@ builder.Services.AddSingleton<IDatabaseConnection, DatabaseConnection>();
 
 builder.Services.AddScoped<IAuthRepository, AuthRepository>();
 builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<IJwtService, JwtService>();
 
 builder.Services.Configure<JwtSettings>(builder.Configuration.GetSection(JwtSettings.SectionName));
-builder.Services.AddScoped<IJwtService, JwtService>();
 
 var jwtSettings = builder.Configuration
     .GetSection(JwtSettings.SectionName)
@@ -55,6 +59,9 @@ builder.Services
     });
 
 builder.Services.AddHttpContextAccessor();
+builder.Services.AddScoped<ICurrentUserService, CurrentUserService>();
+builder.Services.AddScoped<IDepartmentRepository, DepartmentRepository>();
+builder.Services.AddScoped<IDepartmentService, DepartmentService>();
 
 
 var app = builder.Build();

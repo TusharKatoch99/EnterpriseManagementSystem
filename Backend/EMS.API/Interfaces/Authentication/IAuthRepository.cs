@@ -14,6 +14,8 @@ namespace EMS.API.Interfaces.Authentication
 
         Task RevokeRefreshTokenAsync(string token);
 
+        Task RevokeRefreshTokenAsyncById(int refreshTokenId);
+
         Task SaveRefreshTokenAsync(RefreshToken refreshToken);
     }
 }

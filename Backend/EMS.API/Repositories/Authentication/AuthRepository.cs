@@ -88,8 +88,7 @@ namespace EMS.API.Repositories.Authentication
             command.Parameters.AddWithValue("@UserId", refreshToken.UserId);
             command.Parameters.AddWithValue("@Token", refreshToken.Token);
             command.Parameters.AddWithValue("@ExpiresAt", refreshToken.ExpiresAt);
-            command.Parameters.AddWithValue("@CreatedByIp",
-                (object?)refreshToken.CreatedByIp ?? DBNull.Value);
+            command.Parameters.AddWithValue("@CreatedByIp",(object?)refreshToken.CreatedByIp ?? DBNull.Value);
 
             await command.ExecuteNonQueryAsync();
         }
@@ -128,6 +127,7 @@ namespace EMS.API.Repositories.Authentication
             return null;
         }
 
+
         public async Task RevokeRefreshTokenAsync(string token)
         {
             using var connection = CreateConnection();
@@ -139,6 +139,25 @@ namespace EMS.API.Repositories.Authentication
             command.CommandType = CommandType.StoredProcedure;
 
             command.Parameters.AddWithValue("@Token", token);
+
+            await command.ExecuteNonQueryAsync();
+        }
+
+
+        public async Task RevokeRefreshTokenAsyncById(int refreshTokenId)
+        {
+            using var connection = CreateConnection();
+
+            await connection.OpenAsync();
+
+            using var command =
+                new SqlCommand("sp_RevokeRefreshTokenById", connection);
+
+            command.CommandType = CommandType.StoredProcedure;
+
+            command.Parameters.AddWithValue(
+                "@RefreshTokenId",
+                refreshTokenId);
 
             await command.ExecuteNonQueryAsync();
         }

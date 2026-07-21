@@ -1,5 +1,6 @@
 using EMS.API.DTOs.Authentication;
 using EMS.API.Interfaces.Authentication;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EMS.API.Controllers.Authentication
@@ -16,6 +17,7 @@ namespace EMS.API.Controllers.Authentication
         }
 
 
+        [AllowAnonymous]
         [HttpPost("register")]
         public async Task<IActionResult> Register([FromBody] RegisterRequestDto request)
         {
@@ -34,13 +36,14 @@ namespace EMS.API.Controllers.Authentication
             return Ok(response);
         }
 
+        
+        [AllowAnonymous]
         [HttpPost("login")]
         public async Task<IActionResult> Login(LoginRequestDto request)
         {
             var result = await _authService.LoginAsync(request);
 
-            if (!result.Success)
-                return Unauthorized(result);
+            if (!result.Success)return Unauthorized(result);
 
             return Ok(result);
         }
@@ -49,11 +52,25 @@ namespace EMS.API.Controllers.Authentication
         public async Task<IActionResult> RefreshToken(
             RefreshTokenRequestDto request)
         {
-            var result =
-                await _authService.RefreshTokenAsync(request);
+            var result = await _authService.RefreshTokenAsync(request);
 
             if (!result.Success)
+            {
                 return Unauthorized(result);
+            }
+
+            return Ok(result);
+        }
+
+        [HttpPost("logout")]
+        public async Task<IActionResult> Logout(LogoutRequestDto request)
+        {
+            var result = await _authService.LogoutAsync(request);
+
+            if (!result.Success)
+            {
+                return BadRequest(result);
+            }
 
             return Ok(result);
         }

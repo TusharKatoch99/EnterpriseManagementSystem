@@ -164,5 +164,29 @@ namespace EMS.API.Services.Authentication
                 newTokens,
                 "Token refreshed successfully.");
         }
+
+        public async Task<ApiResponse<string>> LogoutAsync(LogoutRequestDto request)
+        {
+            var refreshToken =
+                await _authRepository.GetRefreshTokenAsync(request.RefreshToken);
+
+            if (refreshToken == null)
+            {
+                return ApiResponse<string>.CreateFailure(
+                    "Invalid refresh token.");
+            }
+
+            if (refreshToken.IsRevoked)
+            {
+                return ApiResponse<string>.CreateFailure(
+                    "Already logged out.");
+            }
+
+            await _authRepository.RevokeRefreshTokenAsyncById(refreshToken.RefreshTokenId);
+
+            return ApiResponse<string>.CreateSuccess(
+                "Logout successful.",
+                "User logged out successfully.");
+        }
     }
 }

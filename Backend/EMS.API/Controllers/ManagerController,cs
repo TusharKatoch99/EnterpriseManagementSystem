@@ -1,0 +1,29 @@
+using EMS.API.Interfaces.Common;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+
+namespace EMS.API.Controllers
+{
+    [ApiController]
+    [Route("api/[Controller]")]
+    [Authorize(Roles = "Manager")]
+    public class ManagerController : ControllerBase
+    {
+        private readonly ICurrentUserService _currentUser;
+
+        public ManagerController(ICurrentUserService currentUser)
+        {
+            _currentUser = currentUser;
+        }
+
+        [HttpGet]
+        public IActionResult Get()
+        {
+            return Ok(new
+            {
+                Manager = _currentUser.UserName,
+                UserId = _currentUser.UserId
+            });
+        }
+    }
+}

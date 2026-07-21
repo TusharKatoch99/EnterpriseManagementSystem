@@ -6,7 +6,6 @@ namespace EMS.API.Interfaces.Security
     public interface IJwtService
     {
         Task<LoginResponseDto> GenerateTokensAsync(User user);
-
-        // string GenerateRefreshToken();
+        
     }
 }
