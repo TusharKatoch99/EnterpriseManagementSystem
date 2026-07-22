@@ -17,6 +17,9 @@ using Microsoft.OpenApi.Models;
 using EMS.API.Interfaces.Designation;
 using EMS.API.Repositories.Designation;
 using EMS.API.Services.Designation;
+using EMS.API.Interfaces.Employee;
+using EMS.API.Repositories.Employee;
+using EMS.API.Services.Employee;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -100,6 +103,8 @@ builder.Services.AddScoped<IDepartmentRepository, DepartmentRepository>();
 builder.Services.AddScoped<IDepartmentService, DepartmentService>();
 builder.Services.AddScoped<IDesignationRepository, DesignationRepository>();
 builder.Services.AddScoped<IDesignationService, DesignationService>();
+builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
+builder.Services.AddScoped<IEmployeeService, EmployeeService>();
 
 
 var app = builder.Build();
